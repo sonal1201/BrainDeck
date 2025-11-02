@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Button } from "@/components/ui/button";
 import { signIn } from "@/lib/auth-client";
 import Link from "next/link";
@@ -6,7 +6,7 @@ import React from "react";
 
 const SignIn = () => {
   return (
-    <div className="flex  min-w-screen h-screen bg-zinc-50 dark:bg-transparent px-4 py-16 md:py-32">
+    <div className="flex max-w-7xl mx-auto  h-screen bg-zinc-50 dark:bg-transparent px-4 py-16 md:py-32">
       <div className="bg-card m-auto h-fit w-full max-w-sm rounded-2xl border p-0.5 shadow-md">
         <div className="p-8 pb-6">
           <div className="flex flex-col items-center">
@@ -22,11 +22,15 @@ const SignIn = () => {
           </div>
         </div>
         <div className="flex items-center justify-center mb-10">
-          <Button className="flex justify-center gap-3 w-full max-w-xs" variant={"outline"}
-          onClick={()=> signIn.social({
-            provider:  "google",
-            callbackURL: "/"
-          })}
+          <Button
+            className="flex justify-center gap-3 w-full max-w-xs"
+            variant={"outline"}
+            onClick={() =>
+              signIn.social({
+                provider: "google",
+                callbackURL: "/",
+              })
+            }
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
