@@ -1,10 +1,18 @@
+import Bgpattern from "@/components/bg-pattern";
+import DemoScetion from "@/components/home/DemoScetion";
 import HeroSection from "@/components/home/HeroSection";
-import Image from "next/image";
 
 export default function Home() {
-  return <div>
-    <h1 className="relative w-full">
-      <HeroSection/>
-    </h1>
-  </div>;
+  return (
+    <div className="relative w-full min-h-screen">
+      {/* Background pattern */}
+      <Bgpattern />
+
+      {/* Foreground content */}
+      <div className="absolute inset-0 z-10 flex flex-col">
+        <HeroSection />
+        <DemoScetion/>
+      </div>
+    </div>
+  );
 }
