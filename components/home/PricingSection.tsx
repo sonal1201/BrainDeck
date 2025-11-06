@@ -53,7 +53,7 @@ const PricingCard = ({
   priceId,
 }: PlanType) => {
   return (
-    <div className="relative w-full  max-w-lg">
+    <div className="relative w-full  max-w-lg hover:scale-105 hover:transition-all duration-300">
       <div
         className={cn(
           "relative flex flex-col h-full gap-4 shadow-md lg:gap-8 rounded-xl border-[3px] border-blue-300 p-8",
@@ -100,7 +100,7 @@ const PricingSection = () => {
     <section>
       <div className="py-8 lg:py-12 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       <div>
-        <h2 className="text-center mb-4 lg:mb-12 text-2xl font-bold text-blue-500 uppercase max-w-5xl mx-auto">Pricing</h2>
+        <h2 className="text-center mb-4 lg:mb-12 text-xl font-bold text-blue-500 uppercase max-w-5xl mx-auto">Pricing</h2>
       </div>
       <div className="relative flex justify-center flex-col lg:flex-row items-center lg:items-stretch gap-8">
         {plans.map((plan, id) => (
