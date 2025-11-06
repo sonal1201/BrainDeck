@@ -7,7 +7,10 @@ const HeroSection = () => {
   return (
     <section>
       <div className="relative mx-auto flex flex-col z-0 items-center justify-center transition-all animate-in py-16 sm:py-20 lg:pb-28 lg:px-12 max-w-7xl">
-        <Button variant={"outline"} className="rounded-full w-50 h-8 border-blue-400">
+        <Button
+          variant={"outline"}
+          className="rounded-full w-50 h-8 border-blue-400"
+        >
           {" "}
           <WandSparklesIcon size={30} className="font-bold text-blue-500" />
           <p className="font-semibold">Powered By AI</p>
@@ -15,14 +18,14 @@ const HeroSection = () => {
 
         <h1 className="font-bold py-6 text-center text-4xl">
           Turn Complex PDFs into Smart,{" "}
-          <span className="relative inline-block">
-            <span className="relative z-10 px-2 ">Readable</span>
+          <span className="relative group inline-block">
+            <span className="relative z-10 px-2 text-white">Readable</span>
             <span
-              className="absolute inset-0 bg-blue-300 -rotate-1 rounded-lg transform "
+              className="absolute inset-0 bg-linear-to-b from-blue-500 to-blue-400 -rotate-1 group-hover:scale-105 duration-300 rounded-lg transform "
               aria-hidden="true"
             ></span>
-          </span>
-          {" "}Summaries
+          </span>{" "}
+          Summaries
         </h1>
         <h2 className="font-normal text-center  text-gray-600 lg:max-w-4xl ">
           Save hours of reading — BrainDeck extracts the key ideas and presents

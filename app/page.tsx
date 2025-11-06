@@ -1,6 +1,7 @@
 import Bgpattern from "@/components/bg-pattern";
 import DemoScetion from "@/components/home/DemoScetion";
 import HeroSection from "@/components/home/HeroSection";
+import HowItWorkSection from "@/components/home/HowItWorkSection";
 
 export default function Home() {
   return (
@@ -9,10 +10,11 @@ export default function Home() {
       <Bgpattern />
 
       {/* Foreground content */}
-      <div className="absolute inset-0 z-10 flex flex-col">
+      <div className="absolute inset-0 z-0 flex flex-col">
         <HeroSection />
         <DemoScetion/>
       </div>
+      <HowItWorkSection/>
     </div>
   );
 }
