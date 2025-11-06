@@ -2,6 +2,7 @@ import Bgpattern from "@/components/bg-pattern";
 import DemoScetion from "@/components/home/DemoScetion";
 import HeroSection from "@/components/home/HeroSection";
 import HowItWorkSection from "@/components/home/HowItWorkSection";
+import PricingSection from "@/components/home/PricingSection";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <DemoScetion/>
       </div>
       <HowItWorkSection/>
+      <PricingSection/>
     </div>
   );
 }
