@@ -1,17 +1,12 @@
 "use client";
 
-import { BrainCircuitIcon } from "lucide-react";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
+import { BrainCircuitIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 export default function Header() {
   const pathname = usePathname();
-  const isLogged = false; // Replace with your actual auth state
-
-  const navLinks = [
-    { href: "/#pricing", label: "Pricing" },
-    ...(isLogged ? [{ href: "/dashboard", label: "Your Summaries" }] : []),
-  ];
 
   return (
     <nav className="flex justify-between items-center py-4 lg:px-8 px-4 shadow-sm bg-white/80 backdrop-blur-md sticky top-0 z-50">
@@ -26,38 +21,37 @@ export default function Header() {
         </span>
       </Link>
 
-      {/* Center Nav */}
-      <div className="hidden md:flex gap-8 font-medium text-gray-800">
-        {navLinks.map(({ href, label }) => (
+      {/* Right Side - Nav + User */}
+      <div className="flex items-center gap-6 font-medium text-gray-800">
+        <Link
+          href="/#pricing"
+          className={`p-1 transition-all duration-200 rounded-md px-4 py-2 hover:bg-gray-100 ${
+            pathname === "/#pricing" ? "text-black font-semibold" : ""
+          }`}
+        >
+          Pricing
+        </Link>
+
+        <SignedIn>
           <Link
-            key={href}
-            href={href}
-            className={`p-1 transition-all duration-200 rounded-md hover:bg-gray-100 ${
-              pathname === href ? "text-black font-semibold" : ""
+            href="/dashboard"
+            className={`p-1 transition-all duration-200 px-4 py-2 rounded-md hover:bg-gray-100 ${
+              pathname === "/dashboard" ? "text-black font-semibold" : ""
             }`}
           >
-            {label}
+            Your Summaries
           </Link>
-        ))}
-      </div>
+        </SignedIn>
 
-      {/* Right Action Button */}
-      <div>
-        {isLogged ? (
-          <Link
-            href="/api/auth/signout"
-            className="border border-gray-300 px-3 py-1 rounded-md text-gray-800 font-medium hover:bg-gray-100 transition"
-          >
-            Log Out
-          </Link>
-        ) : (
-          <Link
-            href="/signin"
-            className="border border-gray-300 px-3 py-1 rounded-md text-gray-800 font-medium hover:bg-gray-100 transition"
-          >
-            Sign In
-          </Link>
-        )}
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+
+        <SignedOut>
+          <div className="bg-linear-to-r from-blue-900 to-blue-400 hover:bg-linear-to-r hover:from-blue-400 hover:to-blue-900  shadow-lg text-white px-4 py-2 rounded-md font-medium transition-all hover:scale-103 duration-200 cursor-pointer">
+            <SignInButton />
+          </div>
+        </SignedOut>
       </div>
     </nav>
   );
